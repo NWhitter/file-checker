@@ -31,4 +31,4 @@ inputs:
     default: 'Caution! you have commited some critical files'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
