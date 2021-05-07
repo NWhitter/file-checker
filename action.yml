@@ -1,0 +1,34 @@
+name: 'Check Files'
+description: 'Check for excluded files in your commits and warns you'
+branding:
+  icon: 'alert-circle'
+  color: 'gray-dark'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+    default: '${{ github.token }}'
+  level:
+    description: 'Report level for reviewdog [info,warning,error]'
+    required: false
+    default: 'info'
+  reporter:
+    description: 'Reporter of reviewdog command [github-pr-check,github-pr-review]'
+    required: false
+    default: 'github-pr-check'
+  fail_on_error:
+    description: |
+      Exit code when errors are found [true,false]
+      Default is `false`.
+    required: false
+    default: 'false'
+  files:
+    description: 'A newline separated list of critical files'
+    required: true
+  critical_message:
+    description: 'Message to show when listing all commited critical files'
+    required: false
+    default: 'Caution! you have commited some critical files'
+runs:
+  using: 'node12'
+  main: 'index.js'
